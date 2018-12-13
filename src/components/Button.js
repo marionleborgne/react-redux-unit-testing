@@ -11,8 +11,9 @@ const Button = styled.a`
   border: 1px solid white;
   padding: 10px;
   &:hover {
-    background-color: ${props => props.selected ? BACKGROUND_COLOR : 'white'};
-    color: ${props => props.selected ? 'white' : BACKGROUND_COLOR};
+    background-color: ${props => props.selected ? null : 'white'};
+    color: ${props => props.selected ? null : BACKGROUND_COLOR};
+    cursor: ${props => props.selected ? 'default' : null};
   }
 `;
 

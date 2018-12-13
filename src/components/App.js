@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from '../logo.svg';
-import StatefulTodoList from "./StatefulTodoList";
+import StatefulTodoListComponent from "./StatefulTodoListComponent";
 import TodoListContainer from '../containers/TodoListContainer';
 import Button from './Button';
 
@@ -49,7 +49,7 @@ const Title = () => <h3>Unit Test Best Practices for React Applications</h3>;
 
 export default class App extends Component {
 
-  state = { toggleExample: false };
+  state = { toggleExample: true };
 
   _toggleExample = () => this.setState({ toggleExample: !this.state.toggleExample });
 
@@ -71,7 +71,7 @@ export default class App extends Component {
               onClick={this._toggleExample}
             />
           </ButtonsWrapper>
-          {this.state.toggleExample ? <TodoListContainer /> : <StatefulTodoList />}
+          {this.state.toggleExample ? <TodoListContainer /> : <StatefulTodoListComponent />}
         </Content>
       </MainWindow>
     );

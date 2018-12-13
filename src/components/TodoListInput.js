@@ -22,23 +22,36 @@ const InputAndButton = styled.div`
   margin: 10px 0;
 `;
 
-export default props => {
-  const { inputId, inputText, handleChange, handleSubmit } = props;
-  return (
-    <Content>
-      <TodoListLabel />
-      <InputAndButton>
-        <Input
-          id="new-todo"
-          autoComplete="off"
-          onChange={handleChange}
-          value={inputText}
-        />
-        <Button
-          text={`Add Todo #${inputId}`}
-          onClick={handleSubmit}
-        />
-      </InputAndButton>
-    </Content>
-  )
+export default class TodoListInput extends React.Component {
+
+  state = { input: '' };
+
+  _handleInputSubmit = () => {
+    this.props.handleInputSubmit(this.state.input);
+    this.setState({ input: '' });
+  };
+
+  _handleChange = e => {
+    this.setState({ input: e.target.value });
+  };
+
+  render() {
+    return (
+      <Content>
+        <TodoListLabel />
+        <InputAndButton>
+          <Input
+            id="new-todo"
+            autoComplete="off"
+            onChange={this._handleChange}
+            value={this.state.input}
+          />
+          <Button
+            text={`Add Todo #${this.props.inputId}`}
+            onClick={this._handleInputSubmit}
+          />
+        </InputAndButton>
+      </Content>
+    );
+  }
 }

@@ -1,3 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import TodoListComponent from '../components/TodoListComponent';
+import { addTodo, toggleTodo } from '../actions';
 
-export default () => <div>TODO</div>
+class TodoList extends React.Component {
+
+  render() {
+    return <TodoListComponent
+      onItemClick={this._onItemClick}
+      createItem={this._createItem}
+      items={this.props.items}
+    />
+  }
+
+  _onItemClick = item => this.props.toggleTodo(item);
+
+  _createItem = text => this.props.addTodo(text);
+
+}
+
+const mapStateToProps = state => ({
+  items: state.todos
+});
+
+const mapDispatchToProps = dispatch => ({
+  addTodo: text => dispatch(addTodo(text)),
+  toggleTodo: item => dispatch(toggleTodo(item.id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+
