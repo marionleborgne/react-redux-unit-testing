@@ -3,26 +3,41 @@ import TodoListItems from './TodoListItems';
 import TodoListInput from './TodoListInput';
 import styled from 'styled-components';
 
-const Div = styled.div`
-  text-align: left;
+const TodoList = styled.div`
   border-radius: 10px;
   border: 2px solid white;
   padding: 0 20px 20px 20px;
 `;
 
-const Title = () => <h3>Todo List</h3>;
+const Title = styled.h3`
+  margin: 20px 0 10px 0;
+`;
+
+const defaultItem = {
+  text: 'Example task',
+  id: Date.now(),
+  done: true
+};
 
 export default class StatefulTodoList extends React.Component {
 
-  state = { items: [], text: '' };
+  state = { items: [defaultItem], text: '' };
+
+  _onTodoItemClick = item => {
+    const itemIndex = this.state.items.indexOf(item);
+    const newItems = this.state.items;
+    newItems[itemIndex].done = !newItems[itemIndex].done;
+    this.setState({ items: newItems })
+  };
 
   render() {
 
     return (
-      <Div>
-        <Title />
+      <TodoList>
+        <Title>Todo List Example</Title>
         <TodoListItems
           items={this.state.items}
+          onItemClick={this._onTodoItemClick}
         />
         <TodoListInput
           inputText={this.state.text}
@@ -30,7 +45,7 @@ export default class StatefulTodoList extends React.Component {
           handleChange={this._handleChange}
           handleSubmit={this._handleSubmit}
         />
-      </Div>
+      </TodoList>
     );
   }
 
@@ -38,14 +53,14 @@ export default class StatefulTodoList extends React.Component {
     this.setState({ text: e.target.value });
   };
 
-  _handleSubmit = e => {
-    e.preventDefault();
+  _handleSubmit = () => {
     if (!this.state.text.length) {
       return;
     }
     const newItem = {
       text: this.state.text,
-      id: Date.now()
+      id: Date.now(),
+      done: false
     };
     this.setState(state => ({
       items: state.items.concat(newItem),
