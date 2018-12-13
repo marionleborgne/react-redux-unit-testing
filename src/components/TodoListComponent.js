@@ -19,7 +19,7 @@ export default props => {
 
   return (
     <TodoList>
-      <Title>Todo List (Pure React)</Title>
+      <Title>Todo List Example</Title>
       <TodoListItems
         items={items}
         onItemClick={onItemClick}
