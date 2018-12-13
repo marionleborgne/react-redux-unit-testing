@@ -1,10 +1,10 @@
-> TODO
-> * Create Redux container from StatefulTodoList component
-> * Create test for Redux container
-> * Create test for stateful component
-
 # react-redux-unit-testing
 Best practices for unit testing React/Redux applications.
+
+> TODO
+> * [x] Create Redux container from TodoListComponent component
+> * [x] Create test for stateful component
+> * [ ] Create test for Redux container
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
