@@ -1,32 +1,51 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
-import TodoListContainer from '../../containers/TodoListContainer';
+import { Provider } from 'react-redux';
+import { shallow, mount } from 'enzyme';
+import TodoListContainer, { mapStateToProps } from '../../containers/TodoListContainer';
 
-describe('TodoListContainer', () => {
-  let store;
-  let container;
-  const mockStore = configureStore();
-  const initialState = [
+const initialState = {
+  todos: [
     {
       text: 'Test',
       id: 'mock',
       done: true
     }
-  ];
+  ]
+};
+const initialProps = mapStateToProps(initialState);
+const mockStore = configureStore();
+
+describe('TodoListContainer', () => {
+
+  let store;
+  let wrapper;
 
   beforeEach(() => {
     store = mockStore(initialState);
-    container = shallow(<TodoListContainer context={store} />);
+    wrapper = shallow(
+      <TodoListContainer.WrappedComponent {...initialProps} />,
+      { context: { store } }
+    );
   });
 
   it('renders', () => {
-    expect(container.length).toBe(1);
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('has expected initial number of TODO items', () => {
-    const expected = container.prop('items');
-    const actual = initialState.items;
-    expect(expected).toEqual(actual);
+
+  it('renders a shallow copy with expected initial state', () => {
+    const props = wrapper.props();
+    const actual = props.items;
+    const expected = initialState.todos;
+    expect(actual).toEqual(expected);
+  });
+
+  it('renders with expected initial state', () => {
+    const wrapper = mount(<Provider store={store}><TodoListContainer /></Provider>);
+    const container = wrapper.find(TodoListContainer.WrappedComponent)
+    const actual = container.props().items;
+    const expected = initialState.todos;
+    expect(actual).toEqual(expected);
   });
 });

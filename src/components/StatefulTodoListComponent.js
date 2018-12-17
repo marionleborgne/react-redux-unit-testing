@@ -1,9 +1,9 @@
 import React from 'react';
 import TodoListComponent from './TodoListComponent';
 
-const defaultItem = {
+export const defaultItem = {
   text: 'Create pure React example',
-  id: Date.now(),
+  id: 'default',
   done: true
 };
 

@@ -1,7 +1,7 @@
 const defaultState = [
   {
     text: 'Create Redux example',
-    id: Date.now(),
+    id: 'default',
     done: true
   }
 ];

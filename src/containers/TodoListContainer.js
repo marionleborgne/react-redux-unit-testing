@@ -19,7 +19,7 @@ class TodoList extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   items: state.todos
 });
 
