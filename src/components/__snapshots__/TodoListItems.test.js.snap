@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoListItems tests renders 1`] = `
+exports[`TodoListItems renders 1`] = `
 <div
   id="todo-list-items"
 >
