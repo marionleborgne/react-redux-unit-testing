@@ -5,6 +5,10 @@ import { addTodo, toggleTodo } from '../actions';
 
 class TodoList extends React.Component {
 
+  _onItemClick = item => this.props.toggleTodo(item);
+
+  _createItem = text => this.props.addTodo(text);
+
   render() {
     return <TodoListComponent
       onItemClick={this._onItemClick}
@@ -12,11 +16,6 @@ class TodoList extends React.Component {
       items={this.props.items}
     />
   }
-
-  _onItemClick = item => this.props.toggleTodo(item);
-
-  _createItem = text => this.props.addTodo(text);
-
 }
 
 export const mapStateToProps = state => ({

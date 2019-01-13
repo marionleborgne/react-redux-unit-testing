@@ -30,10 +30,13 @@ const appLogoKeyframes = keyframes`
 
 const AppLogo = styled.img`
   animation: ${appLogoKeyframes} infinite 20s linear;
-  height: 20vmin;
+  height: 180px;
 `;
 
 const Content = styled.header`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 50%;
   min-width: 450px;
 `;
@@ -42,14 +45,16 @@ const ButtonsWrapper = styled.div`
  display: flex;
  justify-content: center;
  align-items: center;
- margin: 10px;
+ margin: 60px 0 30px 0;
 `;
 
-const Title = () => <h3>Unit Test Best Practices for React Applications</h3>;
+const Title = styled.h2`
+  max-width: 400px;
+`;
 
 export default class App extends Component {
 
-  state = { toggleExample: true };
+  state = { toggleExample: false };
 
   _toggleExample = () => this.setState({ toggleExample: !this.state.toggleExample });
 
@@ -57,21 +62,23 @@ export default class App extends Component {
     return (
       <MainWindow>
         <Content>
-          <Title />
+          <Title>
+            Unit Test Best Practices for React Applications
+          </Title>
           <AppLogo src={logo} alt="logo" />
           <ButtonsWrapper>
             <Button
-              text={'Pure React'}
+              text={'Redux'}
               selected={!this.state.toggleExample}
               onClick={this._toggleExample}
             />
             <Button
-              text={'Redux'}
+              text={'Pure React'}
               selected={this.state.toggleExample}
               onClick={this._toggleExample}
             />
           </ButtonsWrapper>
-          {this.state.toggleExample ? <TodoListContainer /> : <StatefulTodoListComponent />}
+          {this.state.toggleExample ? <StatefulTodoListComponent /> : <TodoListContainer />}
         </Content>
       </MainWindow>
     );

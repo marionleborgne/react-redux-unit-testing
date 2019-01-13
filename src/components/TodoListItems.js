@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TodoListItem = styled.div`
+export const TodoListItem = styled.div`
   display: flex;
   justify-content: space-between;
   border-radius: 5px;
@@ -12,26 +12,31 @@ const TodoListItem = styled.div`
   color: black;
 `;
 
-const Text = styled.div`
+export const ItemText = styled.div`
   text-decoration: ${props => props.done ? 'line-through' : null}
 `;
+ItemText.displayName = 'ItemText';
 
-const Link = styled.a`
+
+export const ItemLink = styled.a`
   cursor: pointer;
   font-style: italic;
 `;
+ItemLink.displayName = 'ItemLink';
 
-export default props => <div>
-  {
-    props.items.map(item =>
-      <TodoListItem key={item.id}>
-        <Text done={item.done}>
-          {item.text}
-        </Text>
-        <Link onClick={() => props.onItemClick(item)}>
-          {item.done ? 'Clear' : 'Done'}
-        </Link>
-      </TodoListItem>
-    )
-  }
-</div>;
+export default props => (
+  <div id="todo-list-items">
+    {
+      props.items.map(item =>
+        <TodoListItem key={item.id}>
+          <ItemText done={item.done}>
+            {item.text}
+          </ItemText>
+          <ItemLink onClick={() => props.onItemClick(item)}>
+            {item.done ? 'Clear' : 'Done'}
+          </ItemLink>
+        </TodoListItem>
+      )
+    }
+  </div>
+);

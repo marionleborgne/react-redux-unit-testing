@@ -11,15 +11,6 @@ export default class StatefulTodoListComponent extends React.Component {
 
   state = { items: [defaultItem] };
 
-  render() {
-
-    return <TodoListComponent
-        onItemClick={this._onItemClick}
-        createItem={this._createItem}
-        items={this.state.items}
-      />
-  }
-
   _onItemClick = clickedItem => this.setState({
     items: this.state.items.map(
       item => item.id === clickedItem.id ? { ...item, done: !item.done } : item
@@ -36,4 +27,12 @@ export default class StatefulTodoListComponent extends React.Component {
       items: state.items.concat(newItem)
     }));
   };
+
+  render() {
+    return <TodoListComponent
+      onItemClick={this._onItemClick}
+      createItem={this._createItem}
+      items={this.state.items}
+    />
+  }
 }

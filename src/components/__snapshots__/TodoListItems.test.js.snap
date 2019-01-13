@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoListItems tests renders 1`] = `
+<div
+  id="todo-list-items"
+>
+  <styled.div
+    key="1"
+  >
+    <ItemText
+      done={false}
+    >
+      one
+    </ItemText>
+    <ItemLink
+      onClick={[Function]}
+    >
+      Done
+    </ItemLink>
+  </styled.div>
+  <styled.div
+    key="2"
+  >
+    <ItemText
+      done={false}
+    >
+      two
+    </ItemText>
+    <ItemLink
+      onClick={[Function]}
+    >
+      Done
+    </ItemLink>
+  </styled.div>
+  <styled.div
+    key="3"
+  >
+    <ItemText
+      done={false}
+    >
+      three
+    </ItemText>
+    <ItemLink
+      onClick={[Function]}
+    >
+      Done
+    </ItemLink>
+  </styled.div>
+</div>
+`;
