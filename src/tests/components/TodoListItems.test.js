@@ -29,13 +29,12 @@ describe('TodoListItems', () => {
   });
 
   it('renders todo list items', () => {
-    // Expect the wrapper to be defined.
-    // Expect the wrapper to have the right number of list items.
+    // Example of Enzyme shallow wrapper tests:
+    // - Expect the wrapper to be defined.
+    // - Expect the wrapper to have the right number of list items.
 
-    // NOTE on enzyme selectors and find() method
-    // (source: https://airbnb.io/enzyme/docs/api/ReactWrapper/find.html)
-    // The method find() allows you to find elements by passing an EnzymeSelector
-    // EnzymeSelectors can be:
+    // NOTE: The method find() allows you to find elements
+    // by passing an EnzymeSelector. EnzymeSelectors can be:
 
     // 1. CSS selectors.
     expect(wrapper.find('#todo-list-items')).toBeDefined();
