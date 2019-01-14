@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   mount,
-  // shallow
+  shallow
 } from 'enzyme';
 
 import TodoListComponent from '../../components/TodoListComponent';
@@ -20,7 +20,7 @@ describe('TodoListComponent', () => {
       { id: 3, text: 'three', done: false }
     ];
 
-    // Try to replace shallow with mount.
+    // 1. Try to replace shallow with mount.
     wrapper = mount(
       <TodoListComponent
         onItemClick={_noop}
@@ -29,15 +29,16 @@ describe('TodoListComponent', () => {
       />
     );
 
-    // Let's check what changes in our wrapper
-    // instance when mount -> shallow.
-    console.log(wrapper.debug());
+    // 2. Uncomment to check what changes in our wrapper.
+    // console.log(wrapper.debug());
 
   });
 
+  it('renders one TodoListItems component', () => {
+    expect(wrapper.find('TodoListItems')).toHaveLength(1);
+  });
+
   it('renders list items', () => {
-    // Expect the wrapper object to be defined
-    expect(wrapper.find('#todo-list-items')).toBeDefined();
     // Expect the wrapper to have the right number of list items.
     expect(wrapper.find('ItemText')).toHaveLength(items.length);
   });

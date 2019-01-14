@@ -13,7 +13,7 @@ const Title = styled.h3`
   margin: 20px 0 10px 0;
 `;
 
-export default props => {
+const TodoListComponent = props => {
 
   const { items, onItemClick, createItem } = props;
 
@@ -30,4 +30,6 @@ export default props => {
       />
     </TodoList>
   );
-}
+};
+
+export default TodoListComponent;

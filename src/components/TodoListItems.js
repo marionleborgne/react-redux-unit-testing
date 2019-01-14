@@ -24,7 +24,7 @@ export const ItemLink = styled.a`
 `;
 ItemLink.displayName = 'ItemLink';
 
-export default props => (
+const TodoListItems = props => (
   <div id="todo-list-items">
     {
       props.items.map(item =>
@@ -40,3 +40,5 @@ export default props => (
     }
   </div>
 );
+
+export default TodoListItems;

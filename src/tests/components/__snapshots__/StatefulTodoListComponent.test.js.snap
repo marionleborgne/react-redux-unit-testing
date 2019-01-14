@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StatefulTodoListComponent renders 1`] = `
-<_default
+<TodoListComponent
   createItem={[Function]}
   items={
     Array [

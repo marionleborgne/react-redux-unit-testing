@@ -7,10 +7,9 @@ Best practices for unit testing React/Redux applications.
 > * [x] Create Redux TODO app example from TodoListComponent
 > * [x] Create test stub for Pure React TODO app example
 > * [x] Create test stub for Redux TODO app example
-> * [ ] Extend test for Redux container to [test store and action logic](// TODO: https://github.com/reduxjs/redux/blob/master/docs/recipes/WritingTests.md
+> * [x] Extend test for React stateful component to test state logic.
+> * [ ] Extend test for Redux container to [test store and action logic](https://github.com/reduxjs/redux/blob/master/docs/recipes/WritingTests.md
 ).
-> * [ ] Extend test for React stateful component to test state logic.
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
