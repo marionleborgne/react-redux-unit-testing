@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import TodoListItems, { TodoListItem, ItemText } from './TodoListItems';
+import TodoListItems, { TodoListItem, ItemText } from '../../components/TodoListItems';
 
 const _noop = () => {};
 
