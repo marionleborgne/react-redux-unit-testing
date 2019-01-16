@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoListComponent from './TodoListComponent';
+import TodoList from './TodoList';
 
 export const defaultItem = {
   text: 'Create pure React example',
@@ -7,7 +7,7 @@ export const defaultItem = {
   done: true
 };
 
-export default class StatefulTodoListComponent extends React.Component {
+export default class StatefulTodoList extends React.Component {
 
   state = { items: [defaultItem] };
 
@@ -29,7 +29,7 @@ export default class StatefulTodoListComponent extends React.Component {
   };
 
   render() {
-    return <TodoListComponent
+    return <TodoList
       onItemClick={this._onItemClick}
       createItem={this._createItem}
       items={this.state.items}

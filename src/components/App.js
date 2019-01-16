@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from '../logo.svg';
-import StatefulTodoListComponent from "./StatefulTodoListComponent";
+import StatefulTodoList from "./StatefulTodoList";
 import TodoListContainer from '../containers/TodoListContainer';
 import Button from './Button';
 
@@ -78,7 +78,7 @@ export default class App extends Component {
               onClick={this._toggleExample}
             />
           </ButtonsWrapper>
-          {this.state.toggleExample ? <StatefulTodoListComponent /> : <TodoListContainer />}
+          {this.state.toggleExample ? <StatefulTodoList /> : <TodoListContainer />}
         </Content>
       </MainWindow>
     );

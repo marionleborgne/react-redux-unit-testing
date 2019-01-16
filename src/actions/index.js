@@ -1,10 +1,12 @@
+import types from '../constants/actionTypes';
+
 export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: Date.now(),
-  text
+  type: types.ADD_TODO,
+  text,
+  done: false
 });
 
 export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
+  type: types.TOGGLE_TODO,
   id
 });

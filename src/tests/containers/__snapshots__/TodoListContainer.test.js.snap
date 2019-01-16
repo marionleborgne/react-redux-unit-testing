@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoListContainer renders 1`] = `
-<TodoListComponent
+exports[`TodoListContainer.WrappedComponent renders 1`] = `
+<TodoList
   createItem={[Function]}
   items={
     Array [
       Object {
-        "done": true,
-        "id": "mock",
+        "done": false,
+        "id": "test",
         "text": "Test",
       },
     ]

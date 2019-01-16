@@ -1,28 +1,28 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import StatefulTodoListComponent, { defaultItem } from '../../components/StatefulTodoListComponent';
+import StatefulTodoList, { defaultItem } from '../../components/StatefulTodoList';
 
-describe('StatefulTodoListComponent', () => {
+describe('StatefulTodoList', () => {
 
   it('renders', () => {
-    const wrapper = shallow(<StatefulTodoListComponent />);
+    const wrapper = shallow(<StatefulTodoList />);
     expect(wrapper).toMatchSnapshot();
   });
 
   it('has the expected initial state', () => {
-    const wrapper = mount(<StatefulTodoListComponent />);
+    const wrapper = mount(<StatefulTodoList />);
     const actual = wrapper.state().items;
     const expected = [defaultItem];
     expect(actual).toEqual(expected);
   });
 
-  it('renders one TodoListComponent', () => {
-    const wrapper = shallow(<StatefulTodoListComponent />);
-    expect(wrapper.find('TodoListComponent')).toHaveLength(1);
+  it('renders one TodoList', () => {
+    const wrapper = shallow(<StatefulTodoList />);
+    expect(wrapper.find('TodoList')).toHaveLength(1);
   });
 
   it('creates a new item', () => {
-    const wrapper = shallow(<StatefulTodoListComponent />);
+    const wrapper = shallow(<StatefulTodoList />);
     expect(wrapper.state().items.length).toEqual(1);
 
     // Create a new item
@@ -42,7 +42,7 @@ describe('StatefulTodoListComponent', () => {
   });
 
   it('toggles an item', () => {
-    const wrapper = shallow(<StatefulTodoListComponent />);
+    const wrapper = shallow(<StatefulTodoList />);
     const initialItems = wrapper.state().items;
     expect(initialItems.length).toEqual(1);
     expect(initialItems[0]).toEqual(defaultItem);

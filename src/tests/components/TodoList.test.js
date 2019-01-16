@@ -4,14 +4,14 @@ import {
   shallow
 } from 'enzyme';
 
-import TodoListComponent from '../../components/TodoListComponent';
+import TodoList from '../../components/TodoList';
 
 const _noop = () => {};
 
 let wrapper;
 let items;
 
-describe('TodoListComponent', () => {
+describe('TodoList', () => {
 
   beforeEach(() => {
     items = [
@@ -21,8 +21,8 @@ describe('TodoListComponent', () => {
     ];
 
     // 1. Try to replace shallow with mount.
-    wrapper = mount(
-      <TodoListComponent
+    wrapper = shallow(
+      <TodoList
         onItemClick={_noop}
         createItem={_noop}
         items={items}
@@ -39,8 +39,9 @@ describe('TodoListComponent', () => {
   });
 
   it('renders list items', () => {
-    // Expect the wrapper to have the right number of list items.
-    expect(wrapper.find('ItemText')).toHaveLength(items.length);
+    // 3. When using shallow this will fail. Try to uncomment the next
+    // line and running the with "mount" VS "shallow" to see the difference.
+    // expect(wrapper.find('ItemText').length).toEqual(items.length);
   });
 
 });
